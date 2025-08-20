@@ -50,7 +50,7 @@
 
 
 
-<h1>about us</h1>
+<h1>tank you for comment in site</h1>
 
 
 
