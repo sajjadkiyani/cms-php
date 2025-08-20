@@ -7,11 +7,8 @@ if($section == "about"){
 
 }else if($section == "contact"){
     include("../controller/contact-us.php");
-    if ($action == 'show'){
-        show();
-    }elseif ($action == 'store'){
-        store();
-    }
+    $contact = new ContactUsController();
+    $contact->runAction($action);
 }else if($section == "home"){
     include("../controller/home.php");
 }
