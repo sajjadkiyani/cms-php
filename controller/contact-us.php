@@ -15,6 +15,8 @@ class ContactUsController {
         $actionName = $action."Action";
         if(method_exists($this, $actionName)){
             $this->$actionName();
+        }else {
+            include("../view/page-status/404.php");
         }
     }
 
