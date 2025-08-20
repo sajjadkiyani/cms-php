@@ -1,3 +1,11 @@
 <?php
+use src\Controller;
 
-include("../view/home.php");
+class HomeController extends Controller
+{
+
+    public function showAction(){
+        include("../view/home.php");
+    }
+
+}

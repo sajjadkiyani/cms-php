@@ -1,3 +1,10 @@
 <?php
+use src\Controller;
 
-include("../view/about-us.php");
+class AboutUsController extends Controller {
+
+    public function showAction()
+    {
+        include("../view/about-us.php");
+    }
+}
