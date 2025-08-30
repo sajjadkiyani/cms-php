@@ -19,4 +19,4 @@ if($section == "about"){
     $home->runAction($action);
 }
 
-echo "<h1>index</h1>";
+//echo "<h1>index</h1>";
