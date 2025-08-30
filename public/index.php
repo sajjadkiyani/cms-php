@@ -1,8 +1,13 @@
 <?php
+
+use model\Page;
+
 define('ROOT_PATH', dirname(__DIR__).DIRECTORY_SEPARATOR);
 define('VIEW_PATH', dirname(__DIR__).DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR);
 include(ROOT_PATH."src/Controller.php");
 include(ROOT_PATH."src/Template.php");
+include(ROOT_PATH."model/Page.php");
+
 $section = $_GET['section'] ?? $_POST['section'] ?? null;
 $action = $_GET['action'] ?? $_POST['action'] ?? null;
 if($section == "about"){
@@ -13,7 +18,7 @@ if($section == "about"){
     include("../controller/contact-us.php");
     $contact = new ContactUsController();
     $contact->runAction($action);
-}else if($section == "home"){
+}else if($section == "home" ){
     include("../controller/home.php");
     $home = new HomeController();
     $home->runAction($action);
