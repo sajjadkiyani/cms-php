@@ -1,7 +1,6 @@
 <?php
 include("../src/Controller.php");
-
-
+include("../src/Template.php");
 
 $section = $_GET['section'] ?? $_POST['section'] ?? null;
 $action = $_GET['action'] ?? $_POST['action'] ?? null;

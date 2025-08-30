@@ -1,11 +1,13 @@
 <?php
 use src\Controller;
+use src\Template;
 
 class HomeController extends Controller
 {
 
     public function showAction(){
-        include("../view/home.php");
+        $template = new Template();
+        $template->view("home");
     }
 
 }
