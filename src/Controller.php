@@ -16,7 +16,7 @@ class Controller
         if(method_exists($this, $actionName)){
             $this->$actionName();
         }else {
-            include("../view/page-status/404.php");
+            include(VIEW_PATH."page-status/404.php");
         }
     }
 }

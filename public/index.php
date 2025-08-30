@@ -1,7 +1,8 @@
 <?php
-include("../src/Controller.php");
-include("../src/Template.php");
-
+define('ROOT_PATH', dirname(__DIR__).DIRECTORY_SEPARATOR);
+define('VIEW_PATH', dirname(__DIR__).DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARATOR);
+include(ROOT_PATH."src/Controller.php");
+include(ROOT_PATH."src/Template.php");
 $section = $_GET['section'] ?? $_POST['section'] ?? null;
 $action = $_GET['action'] ?? $_POST['action'] ?? null;
 if($section == "about"){

@@ -7,6 +7,6 @@ class Template
 
     public function view($template)
     {
-        include("../view/".$template.".php");
+        include(VIEW_PATH.$template.".php");
     }
 }

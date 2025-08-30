@@ -19,7 +19,7 @@ class ContactUsController extends Controller{
     public function showFormAction()
     {
         $template = new Template();
-            $template->view("/contact-us/contact-us");
+            $template->view("contact-us/contact-us");
 
     }
 
