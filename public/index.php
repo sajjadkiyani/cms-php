@@ -19,7 +19,6 @@ DataBaseConnection::connect('localhost','cms_php','root','');
 $url = $_GET['seo_name'];
 $router = new Router();
 $router->getBy('url', $url);
-
 $section = $url;
 $action = $router->action;
 $moduleName = ucfirst($router->module).'Controller';

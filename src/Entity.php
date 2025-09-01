@@ -4,8 +4,16 @@ namespace src;
 
 use src\DataBaseConnection;
 
-class Entity
+abstract class Entity
 {
+
+
+    public function __construct()
+    {
+        $this->setFields();
+    }
+
+    abstract protected function setFields();
     protected $tableName ;
 
     protected $fields = array() ;
