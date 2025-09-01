@@ -1,6 +1,6 @@
 <?php
-
 use model\Page;
+use model\Router;
 use src\DataBaseConnection;
 
 define('ROOT_PATH', dirname(__DIR__).DIRECTORY_SEPARATOR);
@@ -8,10 +8,15 @@ define('VIEW_PATH', dirname(__DIR__).DIRECTORY_SEPARATOR.'view'.DIRECTORY_SEPARA
 include(ROOT_PATH."src/Controller.php");
 include(ROOT_PATH."src/Template.php");
 include(ROOT_PATH."model/Page.php");
+include(ROOT_PATH."model/Router.php");
 include(ROOT_PATH."src/DataBaseConnection.php");
 
 DataBaseConnection::getInstance();
 DataBaseConnection::connect('localhost','cms_php','root','');
+$url = $_GET['seo_name'];
+$router = new Router();
+$router->getById(1);
+//var_dump($router);
 $section = $_GET['section'] ?? $_POST['section'] ?? null;
 $action = $_GET['action'] ?? $_POST['action'] ?? null;
 if($section == "about"){
