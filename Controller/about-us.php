@@ -9,9 +9,9 @@ class AboutUsController extends Controller {
     public function showAction()
     {
         $page = new Page();
-        $page->getById(3);
+        $page->getBy( 'id',3);
         $data['pageObj'] = $page;
         $template = new Template();
-        $template->view("about-us",$data);
+        $template->view("static-page",$data);
     }
 }

@@ -7,7 +7,7 @@
 <h3><?= $pageObj->content ?></h3>
 
 
-<form class="max-w-sm mx-auto" action="index.php?section=contact&action=storeFormData" method="post">
+<form class="max-w-sm mx-auto" action="contact" method="post">
         <input type="hidden" name="action" value="store">
     <div class="mb-5">
         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>

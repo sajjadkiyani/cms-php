@@ -16,13 +16,13 @@
         <div class="flex items-center">
             <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
                 <li>
-                    <a href="index.php?section=home&action=show" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Home</a>
+                    <a href="home" class="text-gray-900 dark:text-white hover:underline" aria-current="page">Home</a>
                 </li>
                 <li>
-                    <a href="index.php?section=about&action=show" class="text-gray-900 dark:text-white hover:underline">about-us</a>
+                    <a href="about" class="text-gray-900 dark:text-white hover:underline">about-us</a>
                 </li>
                 <li>
-                    <a href="index.php?section=contact&action=showform" class="text-gray-900 dark:text-white hover:underline">contact-us</a>
+                    <a href="contact" class="text-gray-900 dark:text-white hover:underline">contact-us</a>
                 </li>
                 <li>
                     <a href="#" class="text-gray-900 dark:text-white hover:underline">Features</a>

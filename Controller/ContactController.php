@@ -1,17 +1,17 @@
 <?php
-
+namespace Controller ;
 
 use model\Page;
 use src\Controller;
 use src\Template;
 
-class ContactUsController extends Controller{
+class ContactController extends Controller{
 
     public function BeforeRunAction()
     {
         if ($_COOKIE['check_contact_send'] ?? 0 == 1) {
             $page = new Page();
-            $page->getById(4);
+            $page->getBy('id',2);
             $data['pageObj'] = $page;
             $template = new Template();
             $template->view("contact-us/message-has-already",$data);
@@ -23,7 +23,7 @@ class ContactUsController extends Controller{
     public function showFormAction()
     {
         $page = new Page();
-        $page->getById(2);
+        $page->getBy('id',$this->entity_id);
         $data['pageObj'] = $page;
         $template = new Template();
         $template->view("contact-us/contact-us",$data);

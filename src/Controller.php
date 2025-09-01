@@ -4,6 +4,8 @@ namespace src;
 
 class Controller
 {
+
+    protected $entity_id ;
     public function __construct()
     {
         if (method_exists($this, "BeforeRunAction")) {
@@ -18,5 +20,10 @@ class Controller
         }else {
             include(VIEW_PATH."page-status/404.php");
         }
+    }
+
+    public function setEntityId($entity_id)
+    {
+        $this->entity_id = $entity_id;
     }
 }
