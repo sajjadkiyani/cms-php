@@ -1,7 +1,7 @@
 <?php
-namespace Controller ;
+//namespace modules\contact\Controllers ;
 
-use model\Page;
+use modules\page\models\Page;
 use src\Controller;
 use src\Template;
 
@@ -14,7 +14,7 @@ class ContactController extends Controller{
             $page->getBy('id',2);
             $data['pageObj'] = $page;
             $template = new Template();
-            $template->view("contact-us/message-has-already",$data);
+            $template->view("contact/views/message-has-already",$data);
             die();
         } else
             return true ;
@@ -26,7 +26,7 @@ class ContactController extends Controller{
         $page->getBy('id',$this->entity_id);
         $data['pageObj'] = $page;
         $template = new Template();
-        $template->view("contact-us/contact-us",$data);
+        $template->view("contact/views/contact-us",$data);
 
     }
 
@@ -37,7 +37,7 @@ class ContactController extends Controller{
         $data['pageObj'] = $page;
         setcookie('check_contact_send',true);
         $template = new Template();
-        $template->view("contact-us/contact-us-thank-you",$data);
+        $template->view("contact/views/contact-us-thank-you",$data);
     }
 
 

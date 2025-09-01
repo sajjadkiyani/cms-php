@@ -1,6 +1,7 @@
 <?php
+
+use modules\page\models\Page;
 use src\Controller;
-use model\Page ;
 use src\Template;
 
 class HomeController extends Controller

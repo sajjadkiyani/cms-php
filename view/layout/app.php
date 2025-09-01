@@ -17,7 +17,7 @@
 <?php include VIEW_PATH."layout/navigation.php"; ?>
 
 
-<?php include(VIEW_PATH.$template.".php"); ?>
+<?php include(MODULE_PATH.$template.".php"); ?>
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-use model\Page;
+use modules\page\models\Page;
 use src\Controller;
 use src\Template;
 

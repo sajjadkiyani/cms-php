@@ -1,9 +1,7 @@
 <?php
 
-namespace model;
+namespace modules\page\models;
 
-use PDO;
-use src\DataBaseConnection;
 use src\Entity;
 
 class Page extends Entity

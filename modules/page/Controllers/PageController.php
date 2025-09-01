@@ -1,10 +1,8 @@
 <?php
 
-namespace Controller;
+//namespace modules\page\Controllers;
 
-use model\Page;
 use src\Controller;
-use src\DataBaseConnection;
 use src\Template;
 
 class PageController extends Controller
@@ -13,11 +11,11 @@ class PageController extends Controller
 
     public function defaultAction()
     {
-        $page = new Page();
+        $page = new \modules\page\models\Page();
         $page->getBy('id',$this->entity_id);
         $data['pageObj'] = $page;
         $template = new Template();
-        $template->view("static-page",$data);
+        $template->view("../modules/page/views/static-page",$data);
     }
 
 
