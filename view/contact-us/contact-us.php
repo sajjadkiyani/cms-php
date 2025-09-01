@@ -1,6 +1,11 @@
 
 
-<h1> contact us </h1>
+
+
+<h1><?= $pageObj->title ?></h1>
+
+<h3><?= $pageObj->content ?></h3>
+
 
 <form class="max-w-sm mx-auto" action="index.php?section=contact&action=storeFormData" method="post">
         <input type="hidden" name="action" value="store">

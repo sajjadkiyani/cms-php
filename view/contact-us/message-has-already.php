@@ -1,4 +1,5 @@
 
 
-<h1><?= $title ?></h1>
-<h3><?= $content ?></h3>
+<h1><?= $pageObj->title ?></h1>
+
+<h3><?= $pageObj->content ?></h3>

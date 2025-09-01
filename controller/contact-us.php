@@ -1,6 +1,7 @@
 <?php
 
 
+use model\Page;
 use src\Controller;
 use src\Template;
 
@@ -9,9 +10,10 @@ class ContactUsController extends Controller{
     public function BeforeRunAction()
     {
         if ($_COOKIE['check_contact_send'] ?? 0 == 1) {
+            $page = new Page();
+            $page->getById(4);
+            $data['pageObj'] = $page;
             $template = new Template();
-            $data['title'] = "message has already";
-            $data['content'] = "message has already page ";
             $template->view("contact-us/message-has-already",$data);
             die();
         } else
@@ -20,8 +22,9 @@ class ContactUsController extends Controller{
 
     public function showFormAction()
     {
-        $data['title'] = "Contact Us";
-        $data['content'] = "contact-us page ";
+        $page = new Page();
+        $page->getById(2);
+        $data['pageObj'] = $page;
         $template = new Template();
         $template->view("contact-us/contact-us",$data);
 
@@ -29,8 +32,9 @@ class ContactUsController extends Controller{
 
     public function storeFormDataAction(){
 
-        $data['title'] = "Contact Us thank you";
-        $data['content'] = "contact-us thank you page ";
+        $page = new Page();
+        $page->getById(5);
+        $data['pageObj'] = $page;
         setcookie('check_contact_send',true);
         $template = new Template();
         $template->view("contact-us/contact-us-thank-you",$data);
