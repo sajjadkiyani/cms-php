@@ -17,7 +17,7 @@ class Auth extends Controller
             if ($user->user_name == $userName) {
                 if (password_verify($password,$user->hashed_password)) {
                     $_SESSION['is_admin'] = true;
-                    header("location: index.php?module=dashboard&action=index");
+                    header("location: dashboard");
                 }else
                     var_dump("password not match");
             }else
@@ -31,6 +31,6 @@ class Auth extends Controller
     public function logoutAction()
     {
         $_SESSION['is_admin'] = false;
-        header("Location: index.php?module=dashboard&action=login");
+        header("Location: login");
     }
 }

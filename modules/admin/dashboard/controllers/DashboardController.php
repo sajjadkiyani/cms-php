@@ -13,11 +13,11 @@ class DashboardController extends Controller
         $action = $_GET['action'] ?? $_POST['action'] ?? 'default';
         if($_SESSION['is_admin'] ?? false) {
             if ($action == 'login')
-                header("location: index.php?module=dashboard&action=index");
+                header("location: dashboard");
             return true;
         }
         if($action != 'login') {
-            header("location: index.php?module=dashboard&action=login");
+            header("location: login");
         }
     }
     public function indexAction()
@@ -25,21 +25,11 @@ class DashboardController extends Controller
            $template = new Template();
            $template->viewModule('admin/dashboard/views/index');
     }
-
-    public function loginAction()
-    {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $username = $_POST['userName'] ?? '';
-            $password = $_POST['password'] ?? '';
-            $auth = new Auth();
-            $auth->checklogin($username, $password);
-        }
-        $this->LoginForm();
-    }
-
-    public function LoginForm()
+    public function index()
     {
         $template = new Template();
-        $template->view("admin/login/views/login");
+        $template->viewModule('admin/dashboard/views/index');
     }
+
+
 }

@@ -6,7 +6,7 @@
         </a>
         <div class="flex items-center space-x-6 rtl:space-x-reverse">
             <a href="tel:5541251234" class="text-sm  text-gray-500 dark:text-white hover:underline">0915161718</a>
-            <a href="index.php?module=auth&action=logout" class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">خروج</a>
+            <a href="logout" class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">خروج</a>
         </div>
     </div>
 </nav>
