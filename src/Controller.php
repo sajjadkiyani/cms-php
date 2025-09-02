@@ -8,7 +8,7 @@ class Controller
     protected $entity_id ;
     public function __construct()
     {
-        if (method_exists($this, "BeforeRunAction")) {
+        if (method_exists($this, "beforeRunAction")) {
             $this->BeforeRunAction();
         }
     }
