@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,7 @@
         }
     </style>
 </head>
-<body>
+<body class="rtl">
 
 
 <?php include MODULE_PATH."admin/dashboard/views/layout/template.php"; ?>

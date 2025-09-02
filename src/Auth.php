@@ -1,10 +1,10 @@
 <?php
 
-namespace modules\admin\login\models;
+namespace src;
 
-use src\DataBaseConnection;
+use modules\admin\login\models\User;
 
-class Auth
+class Auth extends Controller
 {
 
     public function checklogin($userName, $password)
@@ -17,7 +17,7 @@ class Auth
             if ($user->user_name == $userName) {
                 if (password_verify($password,$user->hashed_password)) {
                     $_SESSION['is_admin'] = true;
-                    var_dump("success login");
+                    header("location: index.php?module=dashboard&action=index");
                 }else
                     var_dump("password not match");
             }else
@@ -25,5 +25,12 @@ class Auth
         }else{
             var_dump("user not match");
         }
+    }
+
+
+    public function logoutAction()
+    {
+        $_SESSION['is_admin'] = false;
+        header("Location: index.php?module=dashboard&action=login");
     }
 }

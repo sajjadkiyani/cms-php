@@ -2,9 +2,8 @@
 
 namespace modules\admin\dashboard\controllers;
 
-use modules\admin\login\models\Auth;
+use src\Auth;
 use src\Controller;
-use src\DataBaseConnection;
 use src\Template;
 
 class DashboardController extends Controller

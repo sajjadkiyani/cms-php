@@ -1,6 +1,6 @@
 
 
-<form class="max-w-sm mx-auto" method="post">
+<form class="max-w-sm mx-auto" method="post" action="index.php?module=dashboard&action=login">
     <div class="mb-5">
         <input type="hidden" name="module" value="dashboard">
         <input type="hidden" name="action" value="login">
