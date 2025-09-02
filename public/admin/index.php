@@ -26,7 +26,6 @@ include(MODULE_PATH."admin/login/controllers/AuthController.php");
 
 include(ROOT_PATH."route/web.php");
 
-
 DataBaseConnection::getInstance();
 DataBaseConnection::connect('localhost','cms_php','root','');
 // start routing by singleton pattern

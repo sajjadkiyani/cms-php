@@ -5,6 +5,7 @@ namespace modules\admin\login\controllers;
 use src\Auth;
 use src\Controller;
 use src\Template;
+use src\Validation;
 
 class AuthController extends Controller
 {
@@ -19,10 +20,14 @@ class AuthController extends Controller
     public function login()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $username = $_POST['userName'] ?? '';
-            $password = $_POST['password'] ?? '';
+            $_REQUEST = array_merge($_REQUEST, $_POST);
+            $errors = $this->validator($_REQUEST);
+            if ($errors) {
+                $_SESSION['errors'] = $errors;
+                header("Location: login");
+            }
             $auth = new Auth();
-            $auth->checklogin($username, $password);
+            $auth->checklogin($_REQUEST['userName'], $_REQUEST['password']);
         }
         $this->LoginForm();
     }
@@ -31,5 +36,16 @@ class AuthController extends Controller
     {
         $template = new Template();
         $template->view("admin/login/views/login");
+    }
+
+    public function validator($request)
+    {
+        $validate = new Validation();
+        $validate->validate($request,[
+            'password' => 'required|min:',
+            'userName' => 'required|min:'
+        ]);
+        return $validate->errors ;
+
     }
 }
