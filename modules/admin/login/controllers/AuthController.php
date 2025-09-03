@@ -5,7 +5,7 @@ namespace modules\admin\login\controllers;
 use src\Auth;
 use src\Controller;
 use src\Template;
-use src\Validation;
+use src\validation\Validation;
 
 class AuthController extends Controller
 {
@@ -42,8 +42,8 @@ class AuthController extends Controller
     {
         $validate = new Validation();
         $validate->validate($request,[
-            'password' => 'required|min:',
-            'userName' => 'required|min:'
+            'password' => 'required|min:5|max:20',
+            'userName' => 'required'
         ]);
         return $validate->errors ;
 
