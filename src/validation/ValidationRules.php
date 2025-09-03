@@ -28,26 +28,27 @@ class ValidationRules
     }
 
 
-    public function minValidate($value ,$param): void
+    public function minValidate($param,$value ='')
     {
         if (strlen($value) < $param) {
-            $this->errors[$this->fieldName]['min'] = "Minimum {$param} characters";
+            return true;
         }
+        return false;
     }
-    public function requiredValidate($value): void
+    public function requiredValidate($value = null)
     {
         if (! strlen($value) > 0) {
-            var_dump($value);
-            var_dump($this->fieldName);
-            $this->errors[$this->fieldName]['min'] = "required";
+            return true;
         }
+        return false;
     }
 
-    public function maxValidate($value ,$param): void
+    public function maxValidate($param,$value ='')
     {
-        if (strlen($value) > $param) {
-            $this->errors[$this->fieldName]['max'] = "maximal {$param} characters";
+        if (strlen($value) > intval($param)) {
+            return true;
         }
+        return false;
     }
 
     public function setRules(){

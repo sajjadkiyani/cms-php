@@ -25,10 +25,15 @@ class Validation extends ValidationRules
         if (str_contains($rule, ':')) {
             [$rule ,$param] = explode(':', $rule);
             $methodRule = $this->masterRules[$rule];
-            $this->$methodRule($value,$param);
+            $errorMessage = $this->getMessageError($rule);
+            $errorMessage = str_replace(':param',$param,$errorMessage);
+            if($this->$methodRule($param,$value))
+            $this->errors[$this->fieldName][$rule] = $errorMessage;
         }else {
             $methodRule = $this->masterRules[$rule];
-            $this->$methodRule($value);
+            if($this->$methodRule($value))
+                $this->errors[$this->fieldName][$rule] = $this->getMessageError($rule);
+
         }
     }
 }

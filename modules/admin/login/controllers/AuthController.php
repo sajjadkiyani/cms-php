@@ -42,7 +42,7 @@ class AuthController extends Controller
     {
         $validate = new Validation();
         $validate->validate($request,[
-            'password' => 'required|min:5|max:20',
+            'password' => 'max:20|min:6',
             'userName' => 'required'
         ]);
         return $validate->errors ;
