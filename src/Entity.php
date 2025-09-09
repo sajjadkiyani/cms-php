@@ -32,9 +32,27 @@ abstract class Entity
 
     }
 
-    public function setValue($row){
-        foreach ($this->fields as $fieldName) {
-            $this->$fieldName = $row[$fieldName];
+    public function getAll()
+    {
+        $conn =DataBaseConnection::getConnection();
+
+        $sql = 'SELECT * FROM '.$this->tableName;
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $data = [];
+        foreach ($rows as $row) {
+            $object =new $this();
+            $data[] =$this->setValue($row ,$object);
         }
+        return $data ;
+        !empty($row) ? $this->setValue($row) : print_r("not data");
+    }
+
+    public function setValue($row ,$object){
+        foreach ($this->fields as $fieldName) {
+            $object->$fieldName = $row[$fieldName];
+        }
+        return $object;
     }
 }

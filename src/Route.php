@@ -31,14 +31,15 @@ class Route
         }
     }
 
-    public function runAction($classObj,$action)
+    public function runAction($classObj,$action ,$data = null)
     {
-        $classObj->$action();
+        $data == null ? $classObj->$action() : $classObj->$action($data);
     }
 
-    public function setRoute($url,$controller,$action)
+    public function setRoute($url,$controller,$action,$method = 'get')
     {
-        $this->routes += [$url => ['controller'=>$controller, 'action'=>$action]];
+
+        $this->routes += [$url => ['controller'=>$controller, 'action'=>$action] ,$method];
     }
 
     public function createObj($url)
@@ -46,7 +47,7 @@ class Route
        $objectName = $this->routes[$url]['controller'];
         $object = new $objectName();
        if (is_object($object)) {
-           $this->runAction($object ,$this->routes[$url]['action']);
+           $this->runAction($object ,$this->routes[$url]['action'] ,$data);
        }
     }
 
@@ -59,4 +60,5 @@ class Route
     {
         return str_replace('/cms/cms-php/public/admin/','',$url);
     }
+
 }

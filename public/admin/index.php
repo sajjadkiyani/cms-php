@@ -23,6 +23,7 @@ include(MODULE_PATH."page/models/Page.php");
 include(MODULE_PATH."admin/login/models/User.php");
 include(MODULE_PATH."admin/dashboard/controllers/DashboardController.php");
 include(MODULE_PATH."admin/login/controllers/AuthController.php");
+include(MODULE_PATH."page/Controllers/PageController.php");
 
 include(ROOT_PATH."route/web.php");
 
