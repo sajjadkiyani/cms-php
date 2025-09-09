@@ -28,7 +28,7 @@ abstract class Entity
         $stmt = $conn->prepare($sql);
         $stmt->execute(array('filed' => $filedValue));
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
-        !empty($row) ? $this->setValue($row) : print_r("not data");
+        !empty($row) ? $this->setValue($row, $this) : print_r("not data");
 
     }
 

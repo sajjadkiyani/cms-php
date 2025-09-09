@@ -12,7 +12,7 @@ class Auth extends Controller
 //        $password = password_hash($password, PASSWORD_DEFAULT);
         $conn =DataBaseConnection::getConnection();
         $user =new User();
-        $user->getBy('user_name',$userName);
+         $user->getBy('user_name',$userName);
         if (property_exists($user,'id')){
             if ($user->user_name == $userName) {
                 if (password_verify($password,$user->hashed_password)) {

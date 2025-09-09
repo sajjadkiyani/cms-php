@@ -46,6 +46,7 @@ class Route
     {
        $objectName = $this->routes[$url]['controller'];
         $object = new $objectName();
+        $data = null ;
        if (is_object($object)) {
            $this->runAction($object ,$this->routes[$url]['action'] ,$data);
        }
