@@ -5,25 +5,35 @@ use modules\page\Controllers\PageController;
 use src\DataBaseConnection;
 use src\Route;
 
+
 SESSION_START();
 define('ROOT_PATH', dirname(__DIR__).DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR);
 define('VIEW_PATH', dirname(__DIR__).DIRECTORY_SEPARATOR.'../view'.DIRECTORY_SEPARATOR);
 define('MODULE_PATH', dirname(__DIR__).DIRECTORY_SEPARATOR.'../modules'.DIRECTORY_SEPARATOR);
 define('LOGACTION_PATH',"localhost/cms-php/public/admin/");
-include(ROOT_PATH."src/Controller.php");
-include(ROOT_PATH."src/Template.php");
-include(ROOT_PATH."src/Entity.php");
-include(ROOT_PATH."src/Auth.php");
-include(ROOT_PATH."src/Route.php");
-include(ROOT_PATH."src/validation/ValidationRules.php");
-include(ROOT_PATH."src/validation/Validation.php");
-include(ROOT_PATH."model/Router.php");
-include(ROOT_PATH."src/DataBaseConnection.php");
-include(MODULE_PATH."page/models/Page.php");
-include(MODULE_PATH."admin/login/models/User.php");
-include(MODULE_PATH."admin/dashboard/controllers/DashboardController.php");
-include(MODULE_PATH."admin/login/controllers/AuthController.php");
-include(MODULE_PATH."page/Controllers/PageController.php");
+
+spl_autoload_register(function ($class) {
+    $file = ROOT_PATH . str_replace('\\', '/', $class) . '.php';
+
+    // if the file exists, require it
+    if (file_exists($file)) {
+        require $file;
+    }
+});
+//include(ROOT_PATH."src/Controller.php");
+//include(ROOT_PATH."src/Template.php");
+//include(ROOT_PATH."src/Entity.php");
+//include(ROOT_PATH."src/Auth.php");
+//include(ROOT_PATH."src/Route.php");
+//include(ROOT_PATH."src/validation/ValidationRules.php");
+//include(ROOT_PATH."src/validation/Validation.php");
+//include(ROOT_PATH."model/Router.php");
+//include(ROOT_PATH."src/DataBaseConnection.php");
+//include(MODULE_PATH."page/models/Page.php");
+//include(MODULE_PATH."admin/login/models/User.php");
+//include(MODULE_PATH."admin/dashboard/controllers/DashboardController.php");
+//include(MODULE_PATH."admin/login/controllers/AuthController.php");
+//include(MODULE_PATH."page/Controllers/PageController.php");
 
 include(ROOT_PATH."route/web.php");
 
